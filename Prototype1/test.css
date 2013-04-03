@@ -1,0 +1,10 @@
+.touchDiv {
+	width: 500px;
+	height: 500px;
+	margin: 0px;
+	background: transparent;
+	position: absolute;
+	overflow: scroll;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
