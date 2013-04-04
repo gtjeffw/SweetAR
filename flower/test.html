@@ -9,6 +9,7 @@
         <meta name="arenabled" />
         <link rel="stylesheet" type="text/css" href="flower.css">
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="flower.js"></script>
         <script>
             var myAppController =
             {
@@ -32,7 +33,7 @@
                         
                         trackedObject.autoHideAfterFrames = 1;
                         trackedObject.setTarget( stonesTarget );
-                        
+                        /*
                         var divEl = document.createElement('div');
                         divEl.id = "cssContent";
                         divEl.style.width = "100px";
@@ -41,11 +42,16 @@
                         divEl.style.position = 'absolute';
                         divEl.style.fontSize = "16px";
                         divEl.innerText = "Container";
+						*/
 
+						// flower created in flower.js - need to make it into its own class
+						flower.init();
+						flower.container.id = "cssContent";
 
                         
                         var cssObject;
-                        cssObject = new THREE.CSSObject(divEl); 
+                        //cssObject = new THREE.CSSObject(divEl); 
+                        cssObject = new THREE.CSSObject(flower.container); 
                         cssObject.width = 100;
                         cssObject.height = 100;
                         cssObject.position.x = 0.0;
@@ -65,11 +71,13 @@
         </script>
     </head>
     <body>
-    	<!--
+    	
     	<script src="jslog/jslog.js"></script>	
         <script src="http://argon.gatech.edu/argon_o.js"></script>
-    	-->
+    	
+    	<!--
         <script src="flower.js"></script>
+    	-->
     </body>
     
     

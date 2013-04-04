@@ -27,18 +27,22 @@ var flower = {
 						height: "500px"
 					}, 500);
 				}
-
-				
 			});
 
 			$('.flower-element-title').click(function(e) {
 				console.log('element clicked');
-				var content = $(e.target).next();
-				content.slideToggle();
+				var target = $(e.target);
+
+				if(target.is('div')) {
+					target.next().slideToggle();
+				}
+				else {
+					target.parent().next().slideToggle();
+				}
+				
 			});
 
-			$('.flower-element-content').slideToggle();
-
+			$('.flower-element-content').slideUp();
 		});
 		
 
@@ -80,9 +84,19 @@ var flower = {
 	_appendTimelineElement: function(elementsContainer, index, elementData) {
 		var title = document.createElement('div');
 		title.className = 'flower-element-title';
+		var titleText = document.createElement('h1');
+		titleText.innerText = '2011';
+		title.appendChild(titleText);
 
 		var content = document.createElement('div');
 		content.className = 'flower-element-content';
+
+		var contentText = document.createElement('p');
+		contentText.innerText = 'Content...Content...Content...Content...Content...'+
+								'Content...Content...Content...Content...Content...'+
+								'Content...Content...Content...Content...Content...'+
+								'Content...Content...Content...Content...Content...';
+		content.appendChild(contentText);
 
 		elementsContainer.appendChild(title)
 		elementsContainer.appendChild(content);
@@ -94,5 +108,5 @@ var flower = {
 	}
 }
 
-flower.init();
-document.body.appendChild(flower.container);
+//flower.init();
+//document.body.appendChild(flower.container);
