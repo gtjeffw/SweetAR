@@ -8,8 +8,10 @@
 	background-color: rgba(0,0,0,0);
 	width: 500px;
 	height: 500px;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	position: absolute;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
 }
 
 .flower-header {
@@ -21,9 +23,11 @@
 .flower-elements-container {
 	background-color: rgba(0,0,0,0);
 	width: 500px;
-	height: 400px;
+	height: 500px;
 	overflow-y: scroll;
 	word-wrap: break-word;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
 }
 
 .flower-element-title {
