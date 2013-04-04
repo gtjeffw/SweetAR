@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Sweet AR</title>
+        <link rel="apple-touch-icon" href="assets/sample_icon_57x57.png" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="arenabled" />
+        <script>
+        
+        
+            var myAppController =
+            {
+            
+  
+                onArgonReady : function()
+                {
+                    //smyAppController.createContent();
+                    //ARGON.loadDataset("/vuforia/StonesAndChips.xml");
+					
+					ARGON.loadDataset("http://argon.gatech.edu/demos/StonesAndChips.xml");
+					
+					//ARGON.loadDataset("http://www2.imtc.gatech.edu/jeff/sweetar/vuforia/StonesAndChips.xml");
+
+                },
+                
+                onDataSetLoaded : function(event)
+                {
+                    var dataset, stonesTarget, trackedObject;
+                    //var redCube, redMaterial, redGeometry;
+                    
+                    dataset      = event.dataset;
+                    stonesTarget = dataset.targets["stones"];
+                    
+                    if (stonesTarget)
+                    {
+                        trackedObject        = new ARGON.TrackedObject();
+                        trackedObject.name   = "AttachedToStonesTarget"; 
+                        
+                        trackedObject.autoHideAfterFrames = 1;
+                        trackedObject.setTarget( stonesTarget );
+						
+							
+							
+						var testDiv = document.createElement('div');
+						testDiv.classList.add("touchDiv");
+						testDiv.id = "cssContent";
+						
+						
+						testDiv.style.width = "500px";
+						testDiv.style.height = "500px";
+						testDiv.style.backgroundColor = "transparent";
+						testDiv.style.position = 'absolute';
+						
+	
+						var testObj = document.createElement('object');
+						testObj.type = "text/html";
+						testObj.data = "testTimeLine.html";
+						testObj.style.width = "500px";
+						testObj.style.height = "3000px";
+	
+						testDiv.appendChild(testObj);
+	
+						var cssTestObj = new THREE.CSSObject(testDiv);
+	
+						cssTestObj.width = 100;
+						cssTestObj.height = 500;
+						cssTestObj.position.x = 0.0;
+						cssTestObj.position.y = 0.0;
+						cssTestObj.position.z = 0.0;	
+						//cssTestObj.rotation.y = Math.PI;
+
+						//ARGON.World.add(cssTestObj);
+						
+						
+						 trackedObject.add( cssTestObj );
+						
+						
+         
+                        /*
+                        var divEl = document.createElement('div');
+                        divEl.id = "cssContent";
+                        divEl.style.width = "100px";
+                        divEl.style.height = "100px";
+                        divEl.style.backgroundColor = "red";
+                        divEl.style.position = 'absolute';
+                        divEl.style.fontSize = "16px";
+                        divEl.innerText = "AR + HTML5";
+                        
+                        var cssObject;
+                        cssObject = new THREE.CSSObject(divEl); 
+                        cssObject.width = 100;
+                        cssObject.height = 100;
+                        cssObject.position.x = 0.0;
+                        cssObject.position.y = 0.0;
+                        cssObject.position.z = 0.0;
+                        cssObject.visible = false;
+                        
+                        //redCube.add(cssObject);
+
+                        //trackedObject.add( redCube );
+                        
+                        trackedObject.add( cssObject );
+						*/
+                    }
+                }
+            };
+            
+            document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
+			document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
+			
+        </script>
+    </head>
+    <body>
+    	<script src="jslog/jslog.js"></script>	
+        <script src="http://argon.gatech.edu/argon_o.js"></script>
+    </body>
+    
+    
+</html>            
