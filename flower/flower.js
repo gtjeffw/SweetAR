@@ -34,8 +34,10 @@ var flower = {
 			$('.flower-element-title').click(function(e) {
 				console.log('element clicked');
 				var content = $(e.target).next();
-				
+				content.slideToggle();
 			});
+
+			$('.flower-element-content').slideToggle();
 
 		});
 		
