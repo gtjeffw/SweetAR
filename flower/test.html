@@ -7,8 +7,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
         <meta name="arenabled" />
-        <link rel="stylesheet" type="text/css" href="flower.css">
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="flower.css" />
         <script src="flower.js"></script>
         <script>
             var myAppController =
@@ -21,7 +20,6 @@
                 onDataSetLoaded : function(event)
                 {
                     var dataset, stonesTarget, trackedObject;
-                    //var redCube, redMaterial, redGeometry;
                     
                     dataset      = event.dataset;
                     stonesTarget = dataset.targets["stones"];
@@ -33,32 +31,28 @@
                         
                         trackedObject.autoHideAfterFrames = 1;
                         trackedObject.setTarget( stonesTarget );
-                        /*
-                        var divEl = document.createElement('div');
-                        divEl.id = "cssContent";
-                        divEl.style.width = "100px";
-                        divEl.style.height = "100px";
-                        divEl.style.backgroundColor = rgba(255,0,0,1);
-                        divEl.style.position = 'absolute';
-                        divEl.style.fontSize = "16px";
-                        divEl.innerText = "Container";
-						*/
 
 						// flower created in flower.js - need to make it into its own class
+                        
 						flower.init();
 						flower.container.id = "cssContent";
-
+                        //flower.container.style.width = '250px';
+                        //flower.container.style.height = '250px';
                         
                         var cssObject;
                         //cssObject = new THREE.CSSObject(divEl); 
                         cssObject = new THREE.CSSObject(flower.container); 
-                        cssObject.width = 500;
-                        cssObject.height = 500;
+                        cssObject.width = 250;
+                        cssObject.height = 250;
                         cssObject.position.x = 0.0;
                         cssObject.position.y = 0.0;
                         cssObject.position.z = 0.0;
                         cssObject.visible = false;
                         
+                        //console.log("flower.container width: " + flower.container.style.width);
+                        //console.log("flower.container height: " + flower.container.style.height);
+                        console.log("cssObject width: " + cssObject.width);
+                        console.log("cssObject height: " + cssObject.height);
                         
                         trackedObject.add( cssObject );
                     }
@@ -71,13 +65,11 @@
         </script>
     </head>
     <body>
-    	
     	<script src="jslog/jslog.js"></script>	
         <script src="http://argon.gatech.edu/argon_o.js"></script>
-    	
-    	<!--
+        <!--
         <script src="flower.js"></script>
-    	-->
+        -->
     </body>
     
     

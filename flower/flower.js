@@ -2,64 +2,24 @@ var flower = {
 	intervalID: null,
 	container: null,
 	header: null,
-	elementsContainer: null,
+	//elementsContainer: null,
 	footer: null,
 	init: function() {
 		console.log("initializing flower");
 		this.createTestFlower();
-
-		var flower = this;
-
-		$(document).ready(function () {
-			$('.flower-header').click(function(e) {
-				console.log('header clicked');
-				var target = $(e.target);
-				if(target.height() == 500) {
-
-					flower.elementsContainer.scrollTop = 0;
-
-					target.animate({
-						height: "100px"
-					}, 500);
-				}
-				else {
-					target.animate({
-						height: "500px"
-					}, 500);
-				}
-			});
-
-			$('.flower-element-title').click(function(e) {
-				console.log('element clicked');
-				var target = $(e.target);
-
-				if(target.is('div')) {
-					target.next().slideToggle();
-				}
-				else {
-					target.parent().next().slideToggle();
-				}
-				
-			});
-
-			$('.flower-element-content').slideUp();
-		});
-		
-
 	},
 	createTestFlower: function() {
 		this.container = this._createContainer();
 		this.header = this._createFlowerHeader();
-		this.elementsContainer = this._createElementsContainer();
 		this.footer = this._createFlowerFooter();
 
-		for(var i = 0, l = 3, step = 255/3; i < l; i++) {
-			this._appendTimelineElement(this.elementsContainer, i, i*step);
-		}
 
 		this.container.appendChild(this.header);
-		this.container.appendChild(this.elementsContainer);
-		this.elementsContainer.appendChild(this.footer);
+		for(var i = 0, l = 10; i < l; i++) {
+			this._appendTimelineElement(this.container, i, null);
+		}
+
+		this.container.appendChild(this.footer);
 
 		return this.container;
 	},
@@ -76,17 +36,9 @@ var flower = {
 		div.className = 'flower-header';
 		return div;
 	},
-	_createElementsContainer: function() {
-		var div = document.createElement('div');
-		div.className = 'flower-elements-container';
-		return div;
-	},
 	_appendTimelineElement: function(elementsContainer, index, elementData) {
-		var title = document.createElement('div');
-		title.className = 'flower-element-title';
-		var titleText = document.createElement('h1');
-		titleText.innerText = '2011';
-		title.appendChild(titleText);
+		var header = document.createElement('div');
+		header.className = 'flower-element-title';
 
 		var content = document.createElement('div');
 		content.className = 'flower-element-content';
@@ -98,8 +50,12 @@ var flower = {
 								'Content...Content...Content...Content...Content...';
 		content.appendChild(contentText);
 
-		elementsContainer.appendChild(title)
+		var footer = document.createElement('div');
+		footer.className = 'flower-element-footer';
+
+		elementsContainer.appendChild(header)
 		elementsContainer.appendChild(content);
+		elementsContainer.appendChild(footer);
 	},
 	_createFlowerFooter: function() {
 		var div = document.createElement('div');
@@ -107,6 +63,3 @@ var flower = {
 		return div;
 	}
 }
-
-//flower.init();
-//document.body.appendChild(flower.container);
