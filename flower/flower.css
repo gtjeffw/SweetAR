@@ -4,6 +4,10 @@
 	margin: 0;
 }
 
+p {
+	font-size: 10px;
+}
+
 .flower-container {
 	background-color: rgba(0,0,0,0);
 	width: 250px;
@@ -30,7 +34,7 @@
 .flower-element-content {
 	background-color: rgba(105,77,31, 1.0);
 	width: 250px;
-	min-height: 50px;
+	height: auto;
 	word-wrap: break-word;
 }
 
