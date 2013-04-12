@@ -11,17 +11,29 @@ p {
 .flower-container {
 	background-color: rgba(0,0,0,0);
 	width: 250px;
-	height: 250px;
+	height: 500px;
 	position: absolute;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 }
 
+.flower-padding {
+	width: 250px;
+	height: 250px;
+}
+
 .flower-header {
 	background-image: url('flowerHeader.png');
 	width: 250px;
 	height: 250px;
+}
+
+.flower-elements-container {
+	width: 250px;
+	height: 250px;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 .flower-element-title {

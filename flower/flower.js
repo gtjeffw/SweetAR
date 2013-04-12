@@ -59,8 +59,9 @@ timelineData.push({
 var flower = {
 	intervalID: null,
 	container: null,
+	padding: null,
 	header: null,
-	//elementsContainer: null,
+	elementsContainer: null,
 	footer: null,
 	init: function() {
 		console.log("initializing flower");
@@ -68,15 +69,19 @@ var flower = {
 	},
 	createTestFlower: function() {
 		this.container = this._createContainer();
+		this.padding = this._createFlowerPadding();
 		this.header = this._createFlowerHeader();
+		this.elementsContainer = this._createElementsContainer();
 		this.footer = this._createFlowerFooter();
 
+		this.container.appendChild(this.padding);
 		this.container.appendChild(this.header);
+		this.container.appendChild(this.elementsContainer);
 		for(var i = 0, l = timelineData.length; i < l; i++) {
-			this._appendTimelineElement(this.container, i, timelineData[i]);
+			this._appendTimelineElement(this.elementsContainer, i, timelineData[i]);
 		}
 
-		this.container.appendChild(this.footer);
+		this.elementsContainer.appendChild(this.footer);
 
 		return this.container;
 	},
@@ -88,9 +93,19 @@ var flower = {
 		div.className = 'flower-container';
 		return div;
 	},
+	_createFlowerPadding: function() {
+		var div = document.createElement('div');
+		div.className = 'flower-padding';
+		return div;
+	},
 	_createFlowerHeader: function() {
 		var div = document.createElement('div');
 		div.className = 'flower-header';
+		return div;
+	},
+	_createElementsContainer: function() {
+		var div = document.createElement('div');
+		div.className = 'flower-elements-container';
 		return div;
 	},
 	_appendTimelineElement: function(elementsContainer, index, eventData) {
