@@ -1,4 +1,45 @@
 
+
+var timelineData = [];
+
+timelineData.push({
+		date: "Basic Info",
+		image: "contentImages/prince-hall/prince_east.jpg",
+		text: "Original owner: Prince Hall Masons, Built: 1937-main; 1941-addition; John Wesley Dobbs was Grand Master and raised the funds. Architect: Charles Hopson and Ross Howard, Architectural Style: Renaissance Revival, Original Use: Built as a meeting place for the Prince Hall Masons, Georgia's most influential black Masons Group. Re-adaptive Use: Currently is the office of the SCLC",
+});
+
+timelineData.push({
+		date: "1871",
+		image: "contentImages/prince-hall/prince_elev.jpg",
+		text: "The first Mason Lodge is organized among African Americans in Atlanta. The St. James Lodge No. 4 F.& A.M. with Frances J. Peck, pastor of Big Bethal A.M.E., as the worshipful master.",
+});
+
+timelineData.push({
+		date: "1937",
+		image: "contentImages/prince-hall/JWD_uni.jpg",
+		text: "built by Atlanta's Black Masonic lodge, headed by John Wesley Dobbs.",
+});
+
+timelineData.push({
+		date: "1950s",
+		image: "contentImages/prince-hall/werd.jpg",
+		text: "it was the home of WERD the nation's first African American radio station, founded in the 1920s.",
+});
+
+timelineData.push({
+		date: "1960",
+		image: "contentImages/prince-hall/prince_frt.jpg",
+		text: "Dr. Martin Luther King, Jr. moved back to Atlanta, where as president of the Southern Christian Leadership Conference (SCLC), he headquartered the organization in this building and led a national campaign to end segregation.; the Women's SCLC is next door in the Tabor building.",
+});
+
+timelineData.push({
+		date: "Additional Facts",
+		image: "contentImages/prince-hall/price_upclose.jpg",
+		text: "In Addition to the Prince Hall Masons and the Odd Fellows, the Auburn area boasted numerous other fraternal organizations that supported the black business community. The 1945 city directory lists 27 of these organizations on Auburn Avenue, many of which had their headquarters in the Prince Hall Masonic building.",
+});
+
+
+/*
 var timelineData = [];
 
 timelineData.push({
@@ -55,6 +96,7 @@ timelineData.push({
 	image: "contentImages/WAScott.jpg",
 	text: "August 5. William Alexander Scott II, age 26, founded The Atlanta Daily World. It was the first successful African American daily newspaper in the United States. When The Daily World was founded there was only one other black paper in the Atlanta area, The Atlanta Independent, which shut down in 1933, consequently leaving The Daily World as the lone voice for the city's growing black community. Scott launched the paper mainly as a business venture, not a political venture. As a result, it was able to secure local and national advertisements from both black and white businesses, including Coca-Cola, Sears, Roebuck & Company, and Rich's, the largest department store in Atlanta. White businesses did not feel unduly threatened by the paper's editorial position, as they might have with a black paper such as The Chicago Defender or The Negro World, which were 'militant' in their attacks against southern white racism."
 });
+*/
 
 var flower = {
 	intervalID: null,
@@ -63,6 +105,7 @@ var flower = {
 	header: null,
 	elementsContainer: null,
 	footer: null,
+	width: 500,
 	init: function() {
 		console.log("initializing flower");
 		this.createTestFlower();
@@ -91,29 +134,39 @@ var flower = {
 	_createContainer: function() {
 		var div = document.createElement('div');
 		div.className = 'flower-container';
+		div.style.width = this.width + "px";
+		div.style.height = this.width*2 + "px";
 		return div;
 	},
 	_createFlowerPadding: function() {
 		var div = document.createElement('div');
 		div.className = 'flower-padding';
+		div.style.width = this.width + "px";
+		div.style.height = this.width + "px";
 		return div;
 	},
 	_createFlowerHeader: function() {
 		var div = document.createElement('div');
 		div.className = 'flower-header';
+		div.style.width = this.width + "px";
+		div.style.height = this.width + "px";
 		return div;
 	},
 	_createElementsContainer: function() {
 		var div = document.createElement('div');
 		div.className = 'flower-elements-container';
+		div.style.width = this.width + "px";
+		div.style.height = this.width + "px";
 		return div;
 	},
 	_appendTimelineElement: function(elementsContainer, index, eventData) {
 		var header = document.createElement('div');
 		header.className = 'flower-element-title';
+		header.style.width = this.width + "px";
 
 		var content = document.createElement('div');
 		content.className = 'flower-element-content';
+		content.style.width = this.width + "px";
 
 		var contentDate = document.createElement('h3');
 		contentDate.innerText = eventData.date;
@@ -162,6 +215,7 @@ var flower = {
 
 		var footer = document.createElement('div');
 		footer.className = 'flower-element-footer';
+		footer.style.width = this.width + "px";
 
 		elementsContainer.appendChild(header)
 		elementsContainer.appendChild(content);
@@ -170,6 +224,7 @@ var flower = {
 	_createFlowerFooter: function() {
 		var div = document.createElement('div');
 		div.className = 'flower-footer';
+		div.style.width = this.width + "px";
 		return div;
 	}
 };

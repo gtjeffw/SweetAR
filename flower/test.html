@@ -7,8 +7,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
         <meta name="arenabled" />
+
         <link rel="stylesheet" type="text/css" href="flower.css" />
-        <script src="flower.js"></script>
+        <link rel="stylesheet" type="text/css" href="menu.css" />
+
         <script>
             var myAppController =
             {
@@ -36,16 +38,18 @@
                         
 						flower.init();
 						flower.container.id = "cssContent";
-                        //flower.container.style.width = '250px';
-                        //flower.container.style.height = '250px';
+
                         
                         var cssObject;
                         //cssObject = new THREE.CSSObject(divEl); 
                         cssObject = new THREE.CSSObject(flower.container); 
-                        cssObject.width = 250;
-                        cssObject.height = 500;
+                        cssObject.width = flower.width;
+                        cssObject.height = flower.width*2;
+                        cssObject.scale.x = 0.5;
+                        cssObject.scale.y = 0.5;
+                        cssObject.scale.z = 0.5;
                         cssObject.position.x = 0.0;
-                        cssObject.position.y = 125.0;
+                        cssObject.position.y = 125.0 * cssObject.scale.y;
                         cssObject.position.z = 0.0;
                         cssObject.visible = false;
                         
@@ -55,6 +59,17 @@
                         console.log("cssObject height: " + cssObject.height);
                         
                         trackedObject.add( cssObject );
+
+                        // add the menu
+                        console.log("adding the menu");
+                        menu.init();
+                        document.body.appendChild(menu.container);
+
+                        //console.log("adding test touch event");
+                        //console.log(menu.menuItems[0]);
+                        //menu.menuItems[0].addEventListener("touchstart", function() { 
+                        //    document.body.appendChild(flower.container);
+                        //});
                     }
                 }
             };
@@ -65,10 +80,20 @@
         </script>
     </head>
     <body>
+        <script src="flower.js"></script>
+        <script src="menu.js"></script>
+        <!--
+        <script>
+            menu.init();
+            document.body.appendChild(menu.container);
+        </script>
+        -->
         <!--
     	<script src="jslog/jslog.js"></script>	
         -->
+        <script src="http://jsconsole.com/remote.js?FB892229-EA1D-4C4D-B54E-5A456BD54C4E"></script>
         <script src="http://argon.gatech.edu/argon_o.js"></script>
+        
         <!--
         <script src="flower.js"></script>
         -->

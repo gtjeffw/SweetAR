@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Roots of Auburn Ave</title>
+        <link rel="apple-touch-icon" href="icon.png" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="arenabled" />
+
+        <link rel="stylesheet" type="text/css" href="flower.css" />
+        <script src="flower.js"></script>
+        <script>
+            var myAppController =
+            {                   
+                onArgonReady : function()
+                {
+					flower.init();
+
+					var divPos = flower.container;
+		
+					// Put content in each one  (should do this as a couple of functions)
+					// for X
+					   divPos.id = "cssContent";
+					   divPos.style.WebkitTransform = "scale3d(-1, 1, 1)";
+
+							
+					// create 6 CSS Objects in the scene graph
+					   var cssObject = new THREE.CSSObject(divPos); 
+
+					// the width and height is used to align things.
+						cssObject.width = flower.width;
+                        cssObject.height = flower.width*2;
+						cssObject.position.x = 0.0;//1000.0;
+						cssObject.position.y = 0.0;
+						cssObject.position.z = -1000.0;		
+						//cssObject.rotation.y = - Math.PI / 2;			
+  
+							   
+					ARGON.World.add(cssObject);
+			   
+                }
+	
+            };
+            
+            document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
+			document.addEventListener("AR.DataSetActivatedEvent", myAppController.onDataSetActivated);
+			document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
+			
+        </script>
+    </head>
+    <body>
+        <script src="http://argon.gatech.edu/argon_o.js"></script>
+    </body>
+    
+    
+</html>            

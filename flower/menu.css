@@ -1,0 +1,36 @@
+.menu-container {
+	background-color: rgb(98, 227, 212);
+	position: absolute;
+	top: 80%;
+	height: 20%;
+	width: 100%;
+}
+
+.menu-indicator-bg {
+	background-color: rgb(242, 206, 165);
+	position: absolute;
+	height: 100%;
+}
+
+.menu-indicator-top {
+	background-color: rgb(227, 125, 9);
+	position: absolute;
+	width: 100%;
+	height: 20%;
+}
+
+.menu-item {
+	position: absolute;
+	height: 100%;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+.menu-item-top {
+
+}
+
+.menu-item-icon {
+	
+}
